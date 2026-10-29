@@ -1,0 +1,37 @@
+{
+  "bots": [
+    {
+      "id": "research-assistant",
+      "name": "Research Assistant",
+      "title": "Focused web research with Firecrawl",
+      "universe": "unset",
+      "version": 1,
+      "template": "bots/research-assistant/template.yaml",
+      "skills": [
+        "research-scan"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "alt-connection-methods",
+      "version": 1,
+      "path": "skills/alt-connection-methods.md"
+    },
+    {
+      "id": "client-profile",
+      "version": 1,
+      "path": "skills/client-profile.md"
+    },
+    {
+      "id": "install-pack",
+      "version": 1,
+      "path": "skills/install-pack.md"
+    },
+    {
+      "id": "token-economy",
+      "version": 1,
+      "path": "skills/token-economy.md"
+    }
+  ]
+}
