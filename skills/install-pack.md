@@ -23,10 +23,12 @@ This skill is fetched and followed from its link each time. Do not save it into 
    - Create or configure the bot from the template (its `description` field becomes its standing instructions).
    - Run its setup skill. Ask only for gaps, following `client-profile`.
    - Produce its first output and confirm with the client before the next bot.
+   - Then straight away ask whether they are ready for the next one. Early value is the priority: the goal is every bot they paid for, installed as soon as practicable.
+   - If the next bot needs nothing from the client, just confirm it is OK to go ahead and install it.
 5. Connectors: at most one new connector or tool set-up per bot. Mark the rest "later".
 6. Keep the top of `installed.md` current: the manifest link, the time of last activity, and what is still to do.
 7. If the client leaves with the install unfinished:
-   - When they return after a few hours, ask on their next message, for example "When you are ready, you still have 3 bots to install. Shall we carry on?"
+   - When they return, ask on their next message, for example "When you are ready, you still have 3 bots to install. Shall we carry on?"
    - Keep one temporary reminder routine while anything is unfinished, at a falling cadence (about day 1, 3, 7, then weekly up to 4 weeks). Vary the wording each time and always give the number of bots left.
    - Delete the routine when everything is installed or the client says stop. After the last reminder, leave one line in `installed.md` so any bot can offer to resume later.
 
