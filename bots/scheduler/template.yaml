@@ -39,7 +39,8 @@ install: |
      the capture-appointments skill (the client chooses frequency and look-back first). Run it
      once as a test, then schedule it at the client's local time.
   5. If setup.tool_categories is not empty, follow the choose-tools skill for those categories
-     (only for tools marked needed now; the rest wait until the client asks).
+     after your first output to the client, not before (only for tools marked needed now; the
+     rest wait until the client asks).
   6. Record what you installed in /workspace/bot-setup/installed.md (id, version, date), then
      give a one-line receipt naming anything that failed. Do not start the job until it is done.
 

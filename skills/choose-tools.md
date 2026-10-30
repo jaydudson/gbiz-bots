@@ -1,10 +1,10 @@
 # Choose Tools
-Version: 2
+Version: 3
 
 Use this to pick a tool or app for a job from our current lists, at install and any time the client asks "what could do this?". Our two lists are the only source of tool suggestions and referral links.
 
 ## When to use
-- At install, for the categories in your template's `setup.tool_categories`, but only for tools your template marks as needed now. Tools marked "later" wait until the client asks.
+- At install, for the categories in your template's `setup.tool_categories`, but only for tools your template marks as needed now, and after your first output to the client, never before it. Tools marked "later" wait until the client asks.
 - Any time the client asks what tool or app could help with something, or asks to refresh the list.
 
 ## Required inputs and access
@@ -13,9 +13,9 @@ Use this to pick a tool or app for a job from our current lists, at install and 
 - Write access only to `/workspace/bot-setup/tools-seen.md` (tools offered, accepted or declined, with the date).
 
 ## Sequence of work
-1. Fetch both lists. If they cannot be read, say so in one line, use a saved copy in `/workspace/bot-setup/` if there is one, and otherwise suggest nothing.
+1. Download both lists to `/workspace/bot-setup/` (`tools.csv`, `apps.csv`), replacing any older copy. Never read a whole list into chat (about 10,000 tokens): filter by category on the computer and read only those rows. If a download fails, say so in one line, use the saved copy if there is one, and otherwise suggest nothing. A saved copy may be out of date; the client can ask you to refresh it.
 2. Keep only the rows whose `category` matches the one you need. Skip rows with status `deprecated`, and use a `candidate` row only if no `verified` row fits. Skip rows locked to a region that does not match the client.
-3. Prefer a tool the client already uses (for apps, check the `replaces` column). Otherwise choose the best for the job: a free tier first (`free_quota` or `free_limits`, and whether `card_required`), native connector or official MCP preferred. Offer at most one new tool per bot at install; the rest only when asked.
+3. Prefer a tool the client already uses (for apps, check the `replaces` column). Otherwise choose the best for the job: a free tier first (`free_quota` or `free_limits`, and whether `card_required`; check `token_notes` that the free plan allows API access for a bot), native connector or official MCP preferred. Offer at most one new tool per bot at install; the rest only when asked.
 4. Offer it in plain English: what it does for this job, the free limit, the entry price (indicative), and that the client stays in control. If the row's `referral_link` is filled in, use it and add one plain line saying so; if it is empty, give the plain vendor page (`pricing_url`) and no link of ours. Best tool for the job always comes first.
 5. Never set anything up, sign up or spend without the client's yes. On a yes, follow the install steps in your template.
 6. Record what you offered and the answer in the file above. Do not offer a declined tool again.
