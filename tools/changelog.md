@@ -1,0 +1,170 @@
+# toolshed changelog
+
+One line per add/change to tools.csv (written by scripts/upsert.py). Times Australia/Sydney.
+
+- 2026-10-22 21:28 AEDT ADD firecrawl
+- 2026-10-22 21:28 AEDT ADD tavily
+- 2026-10-22 21:28 AEDT ADD composio
+- 2026-10-22 21:28 AEDT ADD resend
+- 2026-10-22 21:28 AEDT ADD frankfurter
+- 2026-10-22 21:28 AEDT ADD abr-abn-lookup
+- 2026-10-22 21:28 AEDT ADD ocr-space
+- 2026-10-22 21:28 AEDT ADD llamaparse
+- 2026-10-22 21:28 AEDT ADD invoice-ninja
+- 2026-10-22 21:28 AEDT ADD cal-com
+- 2026-10-22 21:28 AEDT ADD notion
+- 2026-10-22 21:28 AEDT ADD fathom
+- 2026-10-22 21:28 AEDT ADD geoapify
+- 2026-10-22 21:36 AEDT CHANGE geoapify (verified_from, status, notes) - free quota confirmed on pricing-details page
+- 2026-10-22 21:46 AEDT MIGRATE tools.csv to spec header (13 rows; sme_use->sme_problem, scaling->scale_pricing, rate_limits->token_notes, mcp_ref->notes, quality->rating_signals; categories normalised; grok_plugin_id set for 6; MCP claims re-checked). Backup: background/tools_pre_migration_2026-10-22.csv
+- 2026-10-22 21:45 AEDT ADD tools/stripe - KT: pay-per-use allowed
+- 2026-10-22 21:45 AEDT ADD apps/handy
+- 2026-10-22 21:45 AEDT ADD apps/bitwarden
+- 2026-10-22 21:52 AEDT MIGRATE tools.csv + apps.csv: added referral_program (default unknown), referrer_benefit, referee_benefit, referral_terms_url, referral_link before notes
+- 2026-10-22 21:51 AEDT CHANGE tools/firecrawl (referral_program, referrer_benefit, referee_benefit, referral_terms_url) - referral research (firecrawl.dev/affiliates)
+- 2026-10-22 21:51 AEDT CHANGE tools/firecrawl (notes) - referral terms
+- 2026-10-22 21:56 AEDT CHANGE tools/cal-com (referral_program, referrer_benefit, referee_benefit, referral_terms_url) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/notion (referral_program, referrer_benefit, referee_benefit, referral_terms_url) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/fathom (referral_program, referrer_benefit, referee_benefit, referral_terms_url) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/stripe (referral_program, referrer_benefit, referee_benefit, referral_terms_url) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/tavily (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/composio (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/resend (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/invoice-ninja (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/geoapify (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/llamaparse (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/ocr-space (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/frankfurter (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/abr-abn-lookup (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/cal-com (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/notion (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/fathom (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE tools/stripe (notes) - referral pass (vendor pages)
+- 2026-10-22 21:56 AEDT CHANGE apps/bitwarden (notes) - referral pass
+- 2026-10-22 21:56 AEDT CHANGE apps/handy (notes) - referral pass
+- 2026-10-22 22:10 AEDT ADD tools/hubspot-crm - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/tally - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/brevo - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/cloudflare - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/twilio-sms - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/docuseal - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/posthog - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/zoho-books - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/wave - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/google-drive - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/n8n - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/make - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/deepgram - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/gotenberg - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/uptime-kuma - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD tools/exa - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/proton-pass - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/obs-studio - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/stirling-pdf - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/powertoys - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/joplin - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/ublock-origin-lite - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/grammarly - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/libreoffice - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT ADD apps/syncthing - discovery run 2026-10-22
+- 2026-10-22 22:10 AEDT CHANGE apps/bitwarden (status, notes) - discovery run 2026-10-22
+- 2026-10-22 22:11 AEDT SOURCES run free-for.dev: shortlisted 8, verified 3, streak 0
+- 2026-10-22 22:11 AEDT SOURCES run Grok Bot marketplace: shortlisted 16, verified 9, streak 0
+- 2026-10-22 22:11 AEDT SOURCES run GitHub: shortlisted 12, verified 10, streak 0
+- 2026-10-22 22:11 AEDT SOURCES run Vendor marketplaces: shortlisted 6, verified 3, streak 0 -> active
+- 2026-10-22 22:11 AEDT SOURCES run Official MCP Registry: shortlisted 6, verified 5, streak 0
+- 2026-10-22 22:11 AEDT SOURCES add candidate surface Agent judgment
+- 2026-10-22 22:11 AEDT SOURCES run Agent judgment: shortlisted 3, verified 3, streak 0 -> active
+- 2026-10-22 22:13 AEDT CHANGE tools/posthog (rating_signals) - rating_signals fill 2026-10-22
+- 2026-10-22 22:13 AEDT CHANGE tools/exa (rating_signals) - rating_signals fill 2026-10-22
+- 2026-10-22 22:13 AEDT CHANGE tools/cloudflare (rating_signals) - rating_signals fill 2026-10-22
+- 2026-10-22 22:13 AEDT CHANGE tools/twilio-sms (rating_signals) - rating_signals fill 2026-10-22
+- 2026-10-22 22:13 AEDT CHANGE tools/stripe (rating_signals) - rating_signals fill 2026-10-22
+- 2026-10-22 22:13 AEDT CHANGE tools/cal-com (rating_signals) - rating_signals fill 2026-10-22
+- 2026-10-22 22:20 AEDT CHANGE tools/make (pricing_url, notes) - hashcheck MOVED (redirect)
+- 2026-10-22 22:20 AEDT CHANGE apps/joplin (download_url, notes) - hashcheck MOVED (redirect)
+- 2026-10-22 22:29 AEDT HASHCHECK normaliser: strip query strings on all in-page URLs + live-chat widget text; rebaselined hashes.json from snapshots (0 credits)
+- 2026-10-23 10:38 AEDT MIGRATE tools.csv columns 34->28 (dropped found_via, free_tier, quota_unit, paid_entry_quota, limits_url, referral_program); 30 rows rewritten - colcut approved by KT 2026-10-23 (scripts/migrations/colcut_2026_10_23.py; backup background/pre-colcut-2026-10-23/)
+- 2026-10-23 10:38 AEDT MIGRATE apps.csv columns 24->22 (dropped found_via, referral_program); 5 rows rewritten - colcut approved by KT 2026-10-23 (scripts/migrations/colcut_2026_10_23.py; backup background/pre-colcut-2026-10-23/)
+- 2026-10-23 10:40 AEDT SCHEMA colcut (KT-approved): tools 34->28, apps 24->22 columns; benefits in fixed format (BENEFIT_RE); notes cap 120; free_quota carries 'pay_per_use: <fees>'; time_limited adds one_off_credit (deepgram); referral_link any https (Dub OK); budget reserve = one monthly hashcheck ceil(URLs x 1.1); hashcheck watches 'limits: <url>' in notes; sources.py run logs ids; selftest 36/36; no-op upsert of all rows = no changes. Backup background/pre-colcut-2026-10-23/
+- 2026-10-23 11:04 AEDT DOCS added BOT_BUILDERS.md (read-only guide for bot-designing bots); linked from scripts/README.md
+- 2026-10-26 16:34 AEDT SOURCES add candidate surface NoPaywall.io
+- 2026-10-26 16:49 AEDT ADD tools/gemini-api - llm_api verification 2026-10-26 (ai.google.dev, openrouter.ai)
+- 2026-10-26 16:49 AEDT ADD tools/openrouter-free - llm_api verification 2026-10-26 (ai.google.dev, openrouter.ai)
+- 2026-10-26 16:49 AEDT SCHEMA add tools category llm_api (selftest 37/37); ADD gemini-api, openrouter-free (verified from ai.google.dev pricing/terms/regions/billing and openrouter.ai pricing/limits/FAQ; plain fetches, 0 Firecrawl credits)
+- 2026-10-26 17:01 AEDT CHANGE tools/openrouter-free (status, notes) - excluded by KT 2026-10-26 (not production-fit per vendor FAQ)
+- 2026-10-26 17:01 AEDT DEPRECATE tools/openrouter-free: excluded by KT (free models not production-fit per OpenRouter FAQ); row kept for history
+- 2026-10-26 17:13 AEDT TOOL add scripts/gemini_offload.py (Gemini free-tier offload for public text: source allowlist + regex PII gate, --plan routing, self-adjusting pacing, savings ESTIMATE log, fail-fast on 401/403/404); tests scripts/test_gemini_offload.py wired into selftest (84/84); default model gemini-3.1-flash-lite (2.5-flash-lite 404 for new keys); live test 3/3 ok, 2 private seeds handed back; BOT_BUILDERS.md section 5
+- 2026-10-29 18:25 AEDT ADD tools/fireflies - discovery run 2026-10-29
+- 2026-10-29 18:25 AEDT ADD tools/calendly - discovery run 2026-10-29
+- 2026-10-29 18:25 AEDT ADD tools/mailerlite - discovery run 2026-10-29
+- 2026-10-29 18:25 AEDT ADD tools/jotform - discovery run 2026-10-29
+- 2026-10-29 18:25 AEDT ADD apps/duplicati - discovery run 2026-10-29
+- 2026-10-29 18:25 AEDT SOURCES run NoPaywall.io: shortlisted 6, verified 1, streak 0 -> active
+- 2026-10-29 18:25 AEDT SOURCES run Grok Bot marketplace: shortlisted 5, verified 3, streak 0
+- 2026-10-29 18:25 AEDT SOURCES run AlternativeTo: shortlisted 3, verified 1, streak 0 -> active
+- 2026-10-29 18:26 AEDT RUN weekly discovery 2026-10-29 (catch-up for missed 28 Oct run): 4 tools (fireflies, calendly, mailerlite, jotform) + 1 app (duplicati, new backup category fill) verified from vendor pricing pages; referral programs found for fireflies (up to 30% rev 12mo), mailerlite (30% rev lifetime), jotform (30% rev lifetime); surfaces: NoPaywall.io 6/1 and AlternativeTo 3/1 promoted candidate->active, Grok Bot marketplace 5/3; hashcheck --only baselined 6 new URLs. Otter Basic, You.com, Gamma/Napkin, SurveyMonkey, SendPulse considered and not added (see inventory_2026-10-29.md)
+- 2026-10-29 18:27 AEDT TOOL budget.py prints when the end-of-period burn window opens (period end - 48h) and whether it is open; selftest case added (85/85). Retro suggestion (not applied, routine change): run the 13th burn at ~14:00 AEDT, not ~10:00
+- 2026-10-29 18:47 AEDT CHANGE tools/fathom (mcp, free_quota, scale_pricing, auth, token_notes, rating_signals, best_for, docs_url, last_verified, notes) - meeting transcription discovery 2026-10-29
+- 2026-10-29 18:47 AEDT ADD tools/read-ai - meeting transcription discovery 2026-10-29
+- 2026-10-29 18:47 AEDT ADD tools/granola - meeting transcription discovery 2026-10-29
+- 2026-10-29 18:47 AEDT ADD apps/meetily - meeting transcription discovery 2026-10-29
+- 2026-10-29 18:47 AEDT ADD apps/tactiq - meeting transcription discovery 2026-10-29
+- 2026-10-29 18:47 AEDT SOURCES run Grok Bot marketplace: shortlisted 5, verified 2, streak 0
+- 2026-10-29 18:47 AEDT SOURCES run GitHub: shortlisted 4, verified 1, streak 0
+- 2026-10-29 18:47 AEDT SOURCES run Vendor marketplaces: shortlisted 4, verified 1, streak 0
+- 2026-10-29 18:48 AEDT CHANGE apps/tactiq (pricing_url) - hashcheck 2026-10-29: pricing_url redirect from https://tactiq.io/pricing
+- 2026-10-29 18:48 AEDT SCHEMA add apps category meeting_notes (for local/extension meeting recorders; selftest 85/85). Flag for KT: reversible one-line change in scripts/schema.py
+- 2026-10-29 18:48 AEDT RUN focused discovery: meeting transcription (KT request). ADD tools/read-ai, tools/granola (meeting_transcripts now 4, differentiators noted), apps/meetily, apps/tactiq; CHANGE tools/fathom (mcp none->official; API+webhooks on all plans confirmed; rating_signals filled). Considered, not added: Otter (MCP on Basic, 300 min/mo, 30 min/meeting; API Enterprise-only), tl;dv, Bluedot, MeetGeek, Jamie, Krisp, AssemblyAI, Recall.ai, Anarlog (ex-Hyprnote), Vibe, Buzz. 19 Firecrawl credits
+- 2026-10-29 19:21 AEDT CHANGE tools/abr-abn-lookup (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/brevo (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/cal-com (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/calendly (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/cloudflare (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/composio (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/deepgram (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/docuseal (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/exa (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/fathom (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/firecrawl (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/fireflies (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/frankfurter (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/gemini-api (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/geoapify (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/google-drive (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/gotenberg (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/granola (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/hubspot-crm (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/invoice-ninja (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/jotform (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/llamaparse (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/mailerlite (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/make (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/n8n (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/notion (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/ocr-space (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/openrouter-free (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/posthog (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/read-ai (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/resend (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/stripe (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/tally (mcp, token_notes, notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/tavily (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/twilio-sms (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/uptime-kuma (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/wave (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:21 AEDT CHANGE tools/zoho-books (token_notes) - bot_access_free backfill 2026-10-29 (KT-approved tag)
+- 2026-10-29 19:22 AEDT SCHEMA (KT-approved 2026-10-29): CATEGORY_CAP 3 -> 5 hard (no override; --allow-over-cap removed); upsert.py --swap <old_id> retires a superseded row (status deprecated, notes 'superseded by <id> <date>', SWAP changelog line); tools.token_notes must start 'bot_access_free: <api|mcp|webhooks|export joined by +|none|unknown>'; apps category meeting_notes kept; README + BOT_BUILDERS updated; selftest 93/93
+- 2026-10-29 19:24 AEDT CHANGE tools/fireflies (free_quota, notes) - meeting tools breakdown 2026-10-29 (vendor help pages)
+- 2026-10-29 19:24 AEDT CHANGE tools/fathom (referrer_benefit, referee_benefit, referral_terms_url) - meeting tools breakdown 2026-10-29 (vendor help pages)
+- 2026-10-29 19:24 AEDT CHANGE tools/granola (scale_pricing) - meeting tools breakdown 2026-10-29 (vendor help pages)
+- 2026-10-30 03:03 AEDT ADD tools/twenty-crm - weekly discovery 2026-10-30
+- 2026-10-30 03:03 AEDT ADD tools/uptimerobot - weekly discovery 2026-10-30
+- 2026-10-30 03:03 AEDT ADD tools/telegram-bot-api - weekly discovery 2026-10-30
+- 2026-10-30 03:03 AEDT ADD apps/sharex - weekly discovery 2026-10-30
+- 2026-10-30 03:03 AEDT SOURCES run GitHub: shortlisted 2, verified 2, streak 0
+- 2026-10-30 03:03 AEDT SOURCES run Agent judgment: shortlisted 2, verified 2, streak 0
+- 2026-10-30 03:03 AEDT SOURCES run Grok Bot marketplace: shortlisted 0, verified 0, streak 1
+- 2026-10-30 03:03 AEDT SOURCES run Official MCP Registry: shortlisted 0, verified 0, streak 1
+- 2026-10-30 03:03 AEDT SOURCES run Hacker News (Show HN): shortlisted 0, verified 0, streak 1
+- 2026-10-30 03:04 AEDT SCRIPT hashcheck.py: plain stdlib GET fallback when Firecrawl refuses a domain (core.telegram.org); selftest 93/93; live --only telegram-bot-api baseline stable (exit 0)
