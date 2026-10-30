@@ -169,3 +169,16 @@ One line per add/change to tools.csv (written by scripts/upsert.py). Times Austr
 - 2026-10-30 03:03 AEDT SOURCES run Hacker News (Show HN): shortlisted 0, verified 0, streak 1
 - 2026-10-30 03:04 AEDT SCRIPT hashcheck.py: plain stdlib GET fallback when Firecrawl refuses a domain (core.telegram.org); selftest 93/93; live --only telegram-bot-api baseline stable (exit 0)
 - 2026-10-30 20:15 AEDT CHANGE tools/firecrawl (referral_link) - KT's Firecrawl referral link added (KT request via RA-test, 2026-10-30)
+- 2026-10-31 08:01 AEDT ADD apps/telegram-desktop - on-demand productivity scan 2026-10-31
+- 2026-10-31 08:01 AEDT ADD apps/obsidian - on-demand productivity scan 2026-10-31
+- 2026-10-31 08:01 AEDT ADD apps/appflowy - on-demand productivity scan 2026-10-31
+- 2026-10-31 08:01 AEDT ADD apps/raycast - on-demand productivity scan 2026-10-31
+- 2026-10-31 08:01 AEDT ADD apps/espanso - on-demand productivity scan 2026-10-31
+- 2026-10-31 08:01 AEDT ADD apps/onlyoffice - on-demand productivity scan 2026-10-31
+- 2026-10-31 08:01 AEDT ADD tools/activepieces - on-demand productivity scan 2026-10-31
+- 2026-10-31 08:01 AEDT ADD tools/nocodb - on-demand productivity scan 2026-10-31
+- 2026-10-31 08:01 AEDT SOURCES run GitHub: shortlisted 14, verified 6, streak 0
+- 2026-10-31 08:01 AEDT SOURCES run AlternativeTo: shortlisted 5, verified 4, streak 0
+- 2026-10-31 08:01 AEDT SOURCES run Agent judgment: shortlisted 20, verified 8, streak 0
+- 2026-10-31 08:03 AEDT CHANGE apps/onlyoffice (download_url, pricing_url) - on-demand productivity scan 2026-10-31: canonical URLs after redirect (was docspace-prices.aspx, download-desktop.aspx)
+- 2026-10-31 08:03 AEDT SCAN on-demand productivity scan 2026-10-31 (KT request, no deep pricing check): ADD apps telegram-desktop, obsidian, appflowy, raycast, espanso, onlyoffice; ADD tools activepieces, nocodb. Free tier confirmed on one vendor page each; ratings from GitHub API + AlternativeTo. No swaps; no column changes. Gap: no tasks/projects category (Plane held for KT)
