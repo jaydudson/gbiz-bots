@@ -57,7 +57,7 @@
     },
     {
       "id": "choose-tools",
-      "version": 1,
+      "version": 2,
       "path": "skills/choose-tools.md"
     },
     {
@@ -76,5 +76,5 @@
       "path": "skills/token-economy.md"
     }
   ],
-  "source_commit": "2560434"
+  "source_commit": "cb5b23f"
 }

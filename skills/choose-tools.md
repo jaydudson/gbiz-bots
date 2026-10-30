@@ -1,5 +1,5 @@
 # Choose Tools
-Version: 1
+Version: 2
 
 Use this to pick a tool or app for a job from our current lists, at install and any time the client asks "what could do this?". Our two lists are the only source of tool suggestions and referral links.
 
@@ -8,15 +8,15 @@ Use this to pick a tool or app for a job from our current lists, at install and 
 - Any time the client asks what tool or app could help with something, or asks to refresh the list.
 
 ## Required inputs and access
-- Read the two lists from the repo root (the same root your template's skills come from): `tools/tools.csv` and `tools/apps.csv`. Read the header row first and use the columns it has. Never assume column names.
+- Read the two lists from the repo root (the same root your template's skills come from): `tools/tools.csv` and `tools/apps.csv`. Read the header row first and use the columns it has; the lists may gain columns. `tools.csv` is services and APIs; `apps.csv` is apps the client installs (it adds `replaces`, `kind`, `download_url`).
 - The client's profile and existing tools (follow the client-profile skill). Never assume their country.
 - Write access only to `/workspace/bot-setup/tools-seen.md` (tools offered, accepted or declined, with the date).
 
 ## Sequence of work
 1. Fetch both lists. If they cannot be read, say so in one line, use a saved copy in `/workspace/bot-setup/` if there is one, and otherwise suggest nothing.
-2. Keep only the rows for the category you need. Skip rows locked to a region that does not match the client.
-3. Prefer a tool the client already uses. Otherwise choose the best for the job: free tier first, native connector or official MCP preferred. Offer at most one new tool per bot at install; the rest only when asked.
-4. Offer it in plain English: what it does for this job, the free limit, the entry price (indicative), and that the client stays in control. If the row has a referral link, use it and add one plain line saying so. Best tool for the job always comes first.
+2. Keep only the rows whose `category` matches the one you need. Skip rows with status `deprecated`, and use a `candidate` row only if no `verified` row fits. Skip rows locked to a region that does not match the client.
+3. Prefer a tool the client already uses (for apps, check the `replaces` column). Otherwise choose the best for the job: a free tier first (`free_quota` or `free_limits`, and whether `card_required`), native connector or official MCP preferred. Offer at most one new tool per bot at install; the rest only when asked.
+4. Offer it in plain English: what it does for this job, the free limit, the entry price (indicative), and that the client stays in control. If the row's `referral_link` is filled in, use it and add one plain line saying so; if it is empty, give the plain vendor page (`pricing_url`) and no link of ours. Best tool for the job always comes first.
 5. Never set anything up, sign up or spend without the client's yes. On a yes, follow the install steps in your template.
 6. Record what you offered and the answer in the file above. Do not offer a declined tool again.
 
