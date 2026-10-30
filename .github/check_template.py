@@ -24,7 +24,7 @@ else:
 BOTS = OPS / "bots"
 SHARED = OPS / "skills"
 EM_DASH = chr(0x2014)
-UNIVERSES = {"primer", "specialist", "promo", "custom", "internal"}
+UNIVERSES = {"primer", "specialist", "team", "promo", "custom", "internal"}
 AUTONOMY = {"L0", "L1", "L2", "L3"}
 V11_FIELDS = [
     "name", "title", "universe", "category", "version", "built_from", "autonomy",
