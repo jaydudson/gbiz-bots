@@ -8,6 +8,7 @@ Usage:
 Exit code 0 = all pass, 1 = at least one error. Deterministic: no network, no model.
 Templates without `built_from` are treated as legacy v1 and get the core checks only.
 """
+import csv
 import re
 import sys
 from pathlib import Path
@@ -157,6 +158,37 @@ def check_names(folders):
     return errors
 
 
+def check_registry(folders):
+    """ops/bots.csv: the only record of pack membership. Skipped when absent (public repo)."""
+    path = OPS / "bots.csv"
+    if not path.exists():
+        return None
+    errors, seen = [], set()
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    for r in rows:
+        rid = r.get("id", "")
+        if rid in seen:
+            errors.append(f"bots.csv: id '{rid}' appears twice")
+        seen.add(rid)
+        if r.get("universe") not in UNIVERSES:
+            errors.append(f"bots.csv: '{rid}' universe '{r.get('universe')}' is not one of {sorted(UNIVERSES)}")
+        for col in ("primer", "specialist", "promo"):
+            if r.get(col) not in ("", "Y"):
+                errors.append(f"bots.csv: '{rid}' column {col} must be Y or blank")
+    by_id = {r["id"]: r for r in rows}
+    for folder in folders:
+        if folder.name.startswith("_") or not (folder / "template.yaml").exists():
+            continue
+        row = by_id.get(folder.name)
+        if row is None:
+            errors.append(f"bots.csv: no row for bot folder '{folder.name}'")
+            continue
+        data = yaml.safe_load((folder / "template.yaml").read_text(encoding="utf-8")) or {}
+        if data.get("universe") and data["universe"] != row.get("universe"):
+            errors.append(f"bots.csv: '{folder.name}' universe '{row.get('universe')}' differs from template '{data['universe']}'")
+    return errors
+
+
 def main():
     wanted = ARGS[0].lstrip("_").replace("-", "_") if ARGS else None
     folders = sorted(p for p in BOTS.iterdir() if p.is_dir())
@@ -189,6 +221,12 @@ def main():
         for e in name_errors:
             print(f"      - {e}")
         failed = failed or bool(name_errors)
+        reg_errors = check_registry(folders)
+        if reg_errors is not None:
+            print(f"{'FAIL' if reg_errors else 'PASS'}  registry (bots.csv)")
+            for e in reg_errors:
+                print(f"      - {e}")
+            failed = failed or bool(reg_errors)
     return 1 if failed else 0
 
 

@@ -9,6 +9,9 @@
       "template": "bots/research-assistant/template.yaml",
       "skills": [
         "research-scan"
+      ],
+      "packs": [
+        "primer"
       ]
     }
   ],

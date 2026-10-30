@@ -1,0 +1,4 @@
+id: primer
+bots:
+  - research-assistant
+shared_skills: [alt-connection-methods, client-profile, token-economy]
