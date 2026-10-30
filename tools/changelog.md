@@ -168,3 +168,4 @@ One line per add/change to tools.csv (written by scripts/upsert.py). Times Austr
 - 2026-10-30 03:03 AEDT SOURCES run Official MCP Registry: shortlisted 0, verified 0, streak 1
 - 2026-10-30 03:03 AEDT SOURCES run Hacker News (Show HN): shortlisted 0, verified 0, streak 1
 - 2026-10-30 03:04 AEDT SCRIPT hashcheck.py: plain stdlib GET fallback when Firecrawl refuses a domain (core.telegram.org); selftest 93/93; live --only telegram-bot-api baseline stable (exit 0)
+- 2026-10-30 20:15 AEDT CHANGE tools/firecrawl (referral_link) - KT's Firecrawl referral link added (KT request via RA-test, 2026-10-30)
