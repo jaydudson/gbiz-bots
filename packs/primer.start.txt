@@ -1,0 +1,7 @@
+Please install the bots I bought. Fetch this link and follow it exactly:
+https://raw.githubusercontent.com/jaydudson/gbiz-bots/main/skills/install-pack.md
+
+My bots are listed here, in the order to install them. This bot becomes the first one in the list:
+https://raw.githubusercontent.com/jaydudson/gbiz-bots/main/packs/primer.yaml
+
+Each bot's template is at https://raw.githubusercontent.com/jaydudson/gbiz-bots/main/bots/<bot id>/template.yaml

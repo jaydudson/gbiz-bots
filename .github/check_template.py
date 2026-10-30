@@ -135,6 +135,8 @@ def check_bot(folder):
                     errors.append(f"{f.relative_to(OPS)} exists but is not listed in template.yaml")
 
     if strict:
+        if "TODO" in tpl.read_text(encoding="utf-8"):
+            errors.append("template.yaml still contains TODO placeholders")
         for field in V11_FIELDS:
             if field not in data:
                 errors.append(f"missing required field '{field}'")
@@ -252,6 +254,33 @@ def check_registry(folders):
     return errors
 
 
+# Columns the choose-tools skill reads from Tooly's lists. Tooly may add columns, not drop these.
+TOOL_LIST_COLUMNS = {
+    "tools.csv": ["id", "name", "category", "status", "free_quota", "card_required", "paid_entry_usd",
+                  "token_notes", "pricing_url", "referral_link"],
+    "apps.csv": ["id", "name", "category", "replaces", "status", "free_limits", "pricing_url", "referral_link"],
+}
+
+
+def check_tool_lists():
+    """tools/tools.csv and tools/apps.csv (public repo only). Skipped when absent."""
+    folder = OPS / "tools"
+    if not (folder / "tools.csv").exists():
+        return None
+    errors = []
+    for name, needed in TOOL_LIST_COLUMNS.items():
+        path = folder / name
+        if not path.exists():
+            errors.append(f"tools/{name} is missing")
+            continue
+        with path.open(encoding="utf-8-sig", newline="") as fh:
+            header = next(csv.reader(fh), [])
+        for col in needed:
+            if col not in header:
+                errors.append(f"tools/{name} has no '{col}' column (client bots read it by name)")
+    return errors
+
+
 def main():
     wanted = ARGS[0].lstrip("_").replace("-", "_") if ARGS else None
     folders = sorted(p for p in BOTS.iterdir() if p.is_dir())
@@ -293,6 +322,12 @@ def main():
             for e in reg_errors:
                 print(f"      - {e}")
             failed = failed or bool(reg_errors)
+        list_errors = check_tool_lists()
+        if list_errors is not None:
+            print(f"{'FAIL' if list_errors else 'PASS'}  tools lists (columns the choose-tools skill reads)")
+            for e in list_errors:
+                print(f"      - {e}")
+            failed = failed or bool(list_errors)
     return 1 if failed else 0
 
 
