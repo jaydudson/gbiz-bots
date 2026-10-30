@@ -8,10 +8,44 @@
       "version": 1,
       "template": "bots/research-assistant/template.yaml",
       "skills": [
-        "research-scan"
+        "research-scan",
+        "choose-tools"
       ],
       "packs": [
         "primer"
+      ]
+    },
+    {
+      "id": "scheduler",
+      "name": "Scheduler",
+      "title": "Appointments from email into your calendar",
+      "universe": "primer",
+      "version": 1,
+      "template": "bots/scheduler/template.yaml",
+      "skills": [
+        "capture-appointments",
+        "choose-tools",
+        "client-profile",
+        "token-economy"
+      ],
+      "packs": [
+        "primer"
+      ]
+    },
+    {
+      "id": "support",
+      "name": "Support",
+      "title": "Tech support",
+      "universe": "unset",
+      "version": 1,
+      "template": "bots/support/template.yaml",
+      "skills": [
+        "when-grok-bot-stops-working",
+        "computer-update-and-state-recovery"
+      ],
+      "packs": [
+        "primer",
+        "specialist"
       ]
     }
   ],
@@ -20,6 +54,11 @@
       "id": "alt-connection-methods",
       "version": 1,
       "path": "skills/alt-connection-methods.md"
+    },
+    {
+      "id": "choose-tools",
+      "version": 1,
+      "path": "skills/choose-tools.md"
     },
     {
       "id": "client-profile",
@@ -36,5 +75,6 @@
       "version": 1,
       "path": "skills/token-economy.md"
     }
-  ]
+  ],
+  "source_commit": "2560434"
 }

@@ -1,4 +1,6 @@
 id: primer
 bots:
+  - scheduler
   - research-assistant
-shared_skills: [alt-connection-methods, client-profile, token-economy]
+  - support
+shared_skills: [alt-connection-methods, choose-tools, client-profile, token-economy]

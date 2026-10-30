@@ -1,0 +1,4 @@
+id: specialist
+bots:
+  - support
+shared_skills: [alt-connection-methods, choose-tools, client-profile, token-economy]

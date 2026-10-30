@@ -10,8 +10,12 @@ install: |
   2. Save it to your Private skills library under its id and enable it for yourself. If the
      client already has a skill with the same purpose, leave theirs untouched and add only what
      it lacks, as a clearly marked supplement, after telling the client in one plain line.
-  3. Record what you installed in /workspace/bot-setup/installed.md (id, version, date).
-  4. Give a one-line receipt naming anything that failed. Do not start the job until the
+  3. Also fetch the shared skill choose-tools from skills/choose-tools.md in the repo root (this
+     file's URL without the trailing bots/research-assistant/template.yaml) and save it the same
+     way. When you suggest any research tool, follow it. Until its lists can be read, use the
+     fallback order below.
+  4. Record what you installed in /workspace/bot-setup/installed.md (id, version, date).
+  5. Give a one-line receipt naming anything that failed. Do not start the job until the
      receipt is complete.
 plugins: []                    # discovered or set up during first run
 sources:
@@ -90,5 +94,7 @@ token_efficiency:
 skills:
   - id: research-scan
     path: skills/research-scan.md
+  - id: choose-tools
+    source: shared
 routines: []                  # none by default - client can add later
 share_safe: true

@@ -44,8 +44,7 @@ STANDARD_ANTI_JOBS = [
 ]
 # Built before v1.1; core checks only until retrofitted. Every other bot gets the full checks.
 LEGACY = {
-    "ea-right-hand", "followup-desk", "inbox-triage", "quote-proposal-desk",
-    "receivables-chase", "research-assistant", "scheduling-actions", "support",
+    "quote-proposal-desk", "receivables-chase", "research-assistant", "support",
     "_bot_definition_builder",  # internal, parked
 }
 VERSION_LINE = re.compile(r"^Version:\s*\d+\s*$")
@@ -146,6 +145,11 @@ def check_bot(folder):
         if not data.get("anti_jobs"):
             errors.append("anti_jobs must not be empty")
         setup = data.get("setup") or {}
+        if setup.get("tool_categories"):
+            if "choose-tools" not in [s.get("id") for s in data.get("skills") or []]:
+                errors.append("setup.tool_categories is set: skills must include shared 'choose-tools'")
+            if "choose-tools" not in str(data.get("install") or ""):
+                errors.append("setup.tool_categories is set: install block must follow the choose-tools skill")
         if not setup.get("check_first"):
             errors.append("setup.check_first is required")
         if len(setup.get("ask_only_if_unknown") or []) > 3:
@@ -223,9 +227,28 @@ def check_registry(folders):
         if row is None:
             errors.append(f"bots.csv: no row for bot folder '{folder.name}'")
             continue
+        if row.get("status") == "retire":
+            errors.append(f"bots.csv: '{folder.name}' is status retire; move it to ops/retired_bots/")
         data = yaml.safe_load((folder / "template.yaml").read_text(encoding="utf-8")) or {}
+        if data.get("name") and data["name"] != row.get("name"):
+            errors.append(f"bots.csv: '{folder.name}' name '{row.get('name')}' differs from template '{data['name']}'")
         if data.get("universe") and data["universe"] != row.get("universe"):
             errors.append(f"bots.csv: '{folder.name}' universe '{row.get('universe')}' differs from template '{data['universe']}'")
+    # The registry is the manifest: every row's status must match what is on disk.
+    retired = OPS / "retired_bots"
+    for r in rows:
+        rid, st = r["id"], r.get("status")
+        folder = BOTS / rid
+        if st in ("testing", "built") and not (folder / "template.yaml").exists():
+            errors.append(f"bots.csv: '{rid}' is {st} but has no template.yaml")
+        if st in ("defining", "testing", "built") and not folder.is_dir():
+            errors.append(f"bots.csv: '{rid}' is {st} but has no folder in ops/bots/")
+        if st == "retire" and not (retired / rid).is_dir() and folder.is_dir():
+            errors.append(f"bots.csv: '{rid}' is retire but not in ops/retired_bots/")
+    if retired.is_dir():
+        for p in retired.iterdir():
+            if p.is_dir() and by_id.get(p.name, {}).get("status") != "retire":
+                errors.append(f"ops/retired_bots/{p.name} must have status retire in bots.csv")
     return errors
 
 
@@ -238,13 +261,16 @@ def main():
             print(f"no bot folder named {wanted}")
             return 1
     failed = False
+    reg = OPS / "bots.csv"
+    statuses = {r["id"]: r["status"] for r in csv.DictReader(reg.open(encoding="utf-8"))} if reg.exists() else {}
     for folder in folders:
         errors, notes = check_bot(folder)
         if errors is None:
             print(f"SKIP  {folder.name}: {notes[0]}")
             continue
-        status = "FAIL" if errors else "PASS"
-        failed = failed or bool(errors)
+        live = statuses.get(folder.name, "built") in ("testing", "built")  # unfinished bots only warn
+        status = ("FAIL" if live else "WARN") if errors else "PASS"
+        failed = failed or (bool(errors) and live)
         print(f"{status}  {folder.name}")
         for n in notes:
             print(f"      note: {n}")
